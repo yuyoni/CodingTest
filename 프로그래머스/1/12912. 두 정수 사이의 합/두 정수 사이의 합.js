@@ -1,10 +1,7 @@
 function solution(a, b) {
-    answer = [];
-    let x = a < b? a : b;
-    let y = b > a? b : a;
-    
-    for(let i=x; i<y+1; i++) {
-        answer.push(i);
+    let sum = 0;
+    for (let i = Math.min(a, b); i <= Math.max(a, b); i++) {
+        sum += i;
     }
-    return answer.reduce((a,c) => a + c);
+    return sum;
 }
