@@ -1,7 +1,6 @@
 function solution(num) {
     let i = 0;
-    while(true) {
-        if (num == 1) break;
+    while(num != 1) {
         num = num % 2 ? num * 3 + 1 : num / 2;
         i++
     }
