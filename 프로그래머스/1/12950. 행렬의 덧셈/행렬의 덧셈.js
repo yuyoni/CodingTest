@@ -1,8 +1,3 @@
-function solution(arr1, arr2) {    
-    for (let i=0; i<arr1.length; i++) {
-        for (let j=0; j<arr1[i].length; j++) {
-            arr1[i][j] += arr2[i][j];
-        }
-    }
-    return arr1;
+function solution(arr1, arr2) {
+    return arr1.map((row, i) => row.map((element, j) => element + arr2[i][j]));
 }
