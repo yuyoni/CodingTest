@@ -1,19 +1,14 @@
 function solution(number) {
-    let count = 0;
-
-    function findTriplets(remaining, current, startIndex) {
-        if (current.length === 3) {
-            if (current.reduce((sum, num) => sum + num, 0) === 0) {
-                count++;
+    let answer = 0;
+    
+    for(let i=0; i<number.length; i++) {
+        for(let j=i+1; j<number.length; j++) {
+            for(let k=j+1; k<number.length; k++) {
+                if (number[i] + number[j] + number[k] == 0) {
+                    answer++;
+                } 
             }
-            return;
-        }
-
-        for (let i = startIndex; i < remaining.length; i++) {
-            findTriplets(remaining, [...current, remaining[i]], i + 1);
         }
     }
-
-    findTriplets(number, [], 0);
-    return count;
+    return answer;
 }
