@@ -3,8 +3,7 @@ function solution(s) {
     let zero = 0;
     console.log(s.match(/0/g));
     while (s!=1){
-        let tmpZero = s.match(/0/g) ? s.match(/0/g).length : 0;
-        zero += tmpZero;
+        zero += (s.match(/0/g)||[]).length;
         s = s.replace(/0/g, '');
         s = s.length.toString(2);
         count++;
