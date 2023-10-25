@@ -1,11 +1,10 @@
 function solution(s) {
     let count = 0;
     let zero = 0;
-    console.log(s.match(/0/g));
+    
     while (s!=1){
         zero += (s.match(/0/g)||[]).length;
-        s = s.replace(/0/g, '');
-        s = s.length.toString(2);
+        s = s.replace(/0/g, '').length.toString(2);
         count++;
     }
     
