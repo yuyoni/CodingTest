@@ -1,12 +1,12 @@
 function solution(d, budget) {
     d.sort((a,b) => a-b);
     let total = 0;
-    let count = 0;
     
-    for(let i=0; total <= budget; i++) {
+    for(let i = 0; i < d.length; i++) {
         total += d[i];
-        count++;
+        if(total > budget) {
+            return i;
+        }
     }
-    
-    return count-1;
+    return d.length;
 }
