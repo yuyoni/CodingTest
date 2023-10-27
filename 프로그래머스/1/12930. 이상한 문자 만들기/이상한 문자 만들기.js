@@ -1,11 +1,4 @@
 function solution(s) {
-    let i = 0;
-    let arr = [...s].map((element)=> {
-        let tmp = i % 2 ? element.toLowerCase() : element.toUpperCase();
-        i++;
-        if (element == ' ') i=0;
-        return tmp;
-    })
-    
-    return arr.join('');
+    let tmp = s.split(' ').map((e)=> e.split('').map((e, i) =>i % 2 ? e.toLowerCase() : e.toUpperCase()));
+    return tmp.map(e => e.join('')).join(' ');
 }
