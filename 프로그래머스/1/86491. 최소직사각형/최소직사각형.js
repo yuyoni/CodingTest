@@ -1,19 +1,12 @@
-function solution(sizes) {
-    for (let card of sizes) {
-        if (card[0] < card[1]) {
-            let tmp = card[0];
-            card[0] = card[1];
-            card[1] = tmp;
-        }
-    }
+function solution(sizes) {    
+    const rowSizes = [];
+    const colSizes = [];
     
-    let row = [];
-    let col = [];
+    sizes.map(arr=> {
+        rowSizes.push(Math.max(...arr));
+        colSizes.push(Math.min(...arr));
+    });
     
-    sizes.map(e=> {row.push(e[0]);
-                  col.push(e[1]);
-                  });
-    
-    return Math.max(...row) * Math.max(...col);
+    return Math.max(...rowSizes) * Math.max(...colSizes);
     
 }
