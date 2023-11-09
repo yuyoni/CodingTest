@@ -1,16 +1,10 @@
 function solution(arr) {
-    while(arr.length != 1) {
-        let lcm = getLcm(arr[arr.length-1], arr[arr.length-2]);
-        arr.pop();
-        arr.pop();
-        arr.push(lcm);
-    }
-    
-    return (arr[0]);
+    // reduce로 a 이전값 b 현재값에 대해 순회
+    // a는 초기값 설정 안해줌으로서 배열의 첫번째 값이며,
+    // a = a*b / gcd(a,b), 즉 최소공배수로 계산해줌
+    return (arr.reduce((a,b) => a*b / gcd(a,b)));
 }
 
-function getLcm(num1, num2) {
-    const gcd = (a, b) => a % b === 0 ? b : gcd(b, a % b);
-    const lcm = (a, b) => a * b / gcd(a, b);
-    return lcm(num1, num2);
+function gcd(a, b) {
+  return a % b ? gcd(b, a%b) : b
 }
